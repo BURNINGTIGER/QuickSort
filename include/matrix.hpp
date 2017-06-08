@@ -12,11 +12,11 @@ void QuickSort(Iterator f, Iterator l)
 	Iterator i = f;
 	while (i <= j)
 	{
-		while (*i < *pivot)
+		while (*i < *piv)
 		{
 			++i;
 		}
-		while (*j > *pivot)
+		while (*j > *piv)
 		{
 			--j;
 		}
