@@ -5,7 +5,7 @@ using namespace std;
 
 template <typename Iterator>
 
-void qSort(Iterator f, Iterator l)
+void QuickSort(Iterator f, Iterator l)
 {
 	Iterator piv = l - 1;
 	Iterator j = l - 1;
