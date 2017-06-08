@@ -1,66 +1,16 @@
 #include <matrix.hpp>
 #include <catch.hpp>
-#include <iostream>
 
-using namespace std;
-
-SCENARIO("matrix init", "[init]") {
-	Matrix matrix;
-	REQUIRE(matrix.rows() == 0);
-	REQUIRE(matrix.columns() == 0);
-}
-
-SCENARIO("params init", "[init with params]") {
-	int init = 5;
-	Matrix matrix(init, init);
-	REQUIRE(matrix.rows() == 5);
-	REQUIRE(matrix.columns() == 5);
-}
-
-SCENARIO("copy", "[copy]")
+SCENARIO("sort","[sort]")
 {
-	int init = 2;
-	Matrix m1(init, init);
-	Matrix copy(m1);
-	REQUIRE(copy.rows() == 2);
-	REQUIRE(copy.columns() == 2);
-}
-
-SCENARIO("m+", "[m+]")
-{
-	Matrix A(2, 2);
-	Matrix B(2, 2);
-	Matrix C(2, 2);
-	std::ifstream ("f1.txt") >> A;
-	std::ifstream ("f2.txt") >> B;
-	std::ifstream ("f3.txt") >> C;
-	REQUIRE((A + B) == C);
-}
-
-SCENARIO("m*", "[m*]")
-{
-	Matrix A (2, 2);
-	Matrix B (2, 2);
-	Matrix C (2, 2);
-	std::ifstream("f1.txt") >> A;
-	std::ifstream("f2.txt") >> B;
-	std::ifstream("f4.txt") >> C;
-	REQUIRE((A*B) == C);
-}
-
-SCENARIO("m=", "[m=]")
-{
-	Matrix A(2, 2);
-	Matrix B = A;
-	REQUIRE(B == A);
-}
-
-SCENARIO("read", "[read]")
-{
-	Matrix A(2, 2);
-	Matrix B (2, 2);
-	std::ifstream("f1.txt") >> A;
-	std::ofstream("f5.txt") << A;
-	std::ifstream("f5.txt") >> B;
-	REQUIRE(B == A);
+ 	int array[6] = { 2 , 1, 6, 3, 7, 4 };
+	int sortedArray[6] =  { 1, 2, 3, 4, 6, 7 };
+	int* first = &matrix[0];
+	int* last = &matrix[6];
+	QuickSort(first, last);
+	bool result = true;
+	for (int i = 0; i < 6; i++)
+	if (array[i] != sortedArray[i])
+	result= false;
+	REQUIRE(result == true);
 }
