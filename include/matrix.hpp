@@ -28,7 +28,7 @@ void QuickSort(Iterator f, Iterator l)
 		}
 	}
 	if (i < l)
-		qSort(i, l);
+		QuickSort(i, l);
 	if (f < j)
-		qSort(f, j + 1);
+		QuickSort(f, j + 1);
 }
