@@ -1,26 +1,34 @@
 #include <iostream>
-#include <iomanip>
-#include <fstream>
+#include <iterator>
 
 using namespace std;
 
-class Matrix
-{
-private:
-	int **matr;
-	int st, cl;
+template <typename Iterator>
 
-public:
-	Matrix();
-	Matrix(int, int);
-	Matrix(const Matrix &matrc);
-	~Matrix();
-	int rows()const;
-	int columns()const;
-	Matrix operator+ (const Matrix &mat_2) const;
-	Matrix operator* (const Matrix &mat_2) const;
-	Matrix& operator =(Matrix &);
-	bool operator==(const Matrix&)const;
-	friend istream& operator >> (istream& ist, Matrix& cmatr);
-	friend ostream& operator << (ostream&, const Matrix&);
-};
+void qSort(Iterator f, Iterator l)
+{
+	Iterator piv = l - 1;
+	Iterator j = l - 1;
+	Iterator i = f;
+	while (i <= j)
+	{
+		while (*i < *pivot)
+		{
+			++i;
+		}
+		while (*j > *pivot)
+		{
+			--j;
+		}
+		if (i <= j)
+		{
+			std::iter_swap(j, i);
+			++i;
+			--j;
+		}
+	}
+	if (i < l)
+		qSort(i, l);
+	if (f < j)
+		qSort(f, j + 1);
+}
